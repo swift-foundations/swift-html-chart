@@ -1,9 +1,9 @@
 # swift-html-chart
 
-[![CI](https://github.com/coenttb/swift-html-chart/workflows/CI/badge.svg)](https://github.com/coenttb/swift-html-chart/actions/workflows/ci.yml)
+[![CI](https://github.com/swift-foundations/swift-html-chart/workflows/CI/badge.svg)](https://github.com/swift-foundations/swift-html-chart/actions/workflows/ci.yml)
 ![Development Status](https://img.shields.io/badge/status-active--development-blue.svg)
 
-A Swift package for type-safe Chart.js integration with [swift-html](https://github.com/coenttb/swift-html), providing a domain model and HTML DSL for creating interactive charts in server-side Swift applications.
+A Swift package for type-safe Chart.js integration with [swift-html](https://github.com/swift-foundations/swift-html), providing a domain model and HTML DSL for creating interactive charts in server-side Swift applications.
 
 ## Overview
 
@@ -24,7 +24,7 @@ Add swift-html-chart to your `Package.swift`:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/coenttb/swift-html-chart", from: "0.0.1")
+    .package(url: "https://github.com/swift-foundations/swift-html-chart", from: "0.0.1")
 ]
 ```
 
@@ -247,4 +247,4 @@ Contributions are welcome. Please submit a Pull Request with a clear description
 
 ### Dependencies
 
-- [swift-html](https://github.com/coenttb/swift-html): The Swift library for domain-accurate and type-safe HTML & CSS.
+- [swift-html](https://github.com/swift-foundations/swift-html): The Swift library for domain-accurate and type-safe HTML & CSS.
