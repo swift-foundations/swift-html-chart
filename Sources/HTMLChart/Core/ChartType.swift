@@ -16,6 +16,7 @@ public enum ChartType: String, Sendable, CaseIterable, Codable {
         switch self {
         case .polarArea:
             return "polarArea"
+
         default:
             return self.rawValue
         }
@@ -26,6 +27,7 @@ public enum ChartType: String, Sendable, CaseIterable, Codable {
         switch self {
         case .line, .bar:
             return true
+
         default:
             return false
         }
@@ -36,6 +38,7 @@ public enum ChartType: String, Sendable, CaseIterable, Codable {
         switch self {
         case .radar, .polarArea:
             return true
+
         default:
             return false
         }
@@ -46,6 +49,7 @@ public enum ChartType: String, Sendable, CaseIterable, Codable {
         switch self {
         case .doughnut, .pie, .polarArea:
             return true
+
         default:
             return false
         }

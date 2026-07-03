@@ -39,33 +39,34 @@ public struct TitleOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let text = text {
+        if let text {
             switch text {
             case .single(let str):
                 dict["text"] = str
+
             case .multi(let lines):
                 dict["text"] = lines
             }
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let font = font {
+        if let font {
             dict["font"] = font.toDictionary()
         }
-        if let position = position {
+        if let position {
             dict["position"] = position.rawValue
         }
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding.jsValue
         }
-        if let fullSize = fullSize {
+        if let fullSize {
             dict["fullSize"] = fullSize
         }
-        if let align = align {
+        if let align {
             dict["align"] = align.rawValue
         }
 

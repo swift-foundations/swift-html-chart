@@ -77,18 +77,22 @@ public enum CDNPlugin: String, Sendable {
             return .init(
                 "https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2/dist/chartjs-plugin-datalabels.min.js"
             )
+
         case .zoom:
             return .init(
                 "https://cdn.jsdelivr.net/npm/chartjs-plugin-zoom@2/dist/chartjs-plugin-zoom.min.js"
             )
+
         case .annotation:
             return .init(
                 "https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation@3/dist/chartjs-plugin-annotation.min.js"
             )
+
         case .deferred:
             return .init(
                 "https://cdn.jsdelivr.net/npm/chartjs-plugin-deferred@2/dist/chartjs-plugin-deferred.min.js"
             )
+
         case .streaming:
             return .init(
                 "https://cdn.jsdelivr.net/npm/chartjs-plugin-streaming@2/dist/chartjs-plugin-streaming.min.js"

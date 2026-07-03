@@ -76,61 +76,61 @@ public struct ChartOptions: Sendable {
     public func toJavaScript() -> String {
         var options: [String: Any] = [:]
 
-        if let responsive = responsive {
+        if let responsive {
             options["responsive"] = responsive
         }
-        if let maintainAspectRatio = maintainAspectRatio {
+        if let maintainAspectRatio {
             options["maintainAspectRatio"] = maintainAspectRatio
         }
-        if let aspectRatio = aspectRatio {
+        if let aspectRatio {
             options["aspectRatio"] = aspectRatio
         }
-        if let resizeDelay = resizeDelay {
+        if let resizeDelay {
             options["resizeDelay"] = resizeDelay
         }
-        if let devicePixelRatio = devicePixelRatio {
+        if let devicePixelRatio {
             options["devicePixelRatio"] = devicePixelRatio
         }
-        if let locale = locale {
+        if let locale {
             options["locale"] = locale
         }
-        if let interaction = interaction {
+        if let interaction {
             options["interaction"] = interaction.toDictionary()
         }
-        if let animation = animation {
+        if let animation {
             options["animation"] = animation.toDictionary()
         }
-        if let layout = layout {
+        if let layout {
             options["layout"] = layout.toDictionary()
         }
-        if let plugins = plugins {
+        if let plugins {
             options["plugins"] = plugins.toDictionary()
         }
-        if let scales = scales {
+        if let scales {
             options["scales"] = scales.toDictionary()
         }
-        if let indexAxis = indexAxis {
+        if let indexAxis {
             options["indexAxis"] = indexAxis.rawValue
         }
-        if let color = color {
+        if let color {
             options["color"] = color.value
         }
-        if let backgroundColor = backgroundColor {
+        if let backgroundColor {
             options["backgroundColor"] = backgroundColor.value
         }
-        if let borderColor = borderColor {
+        if let borderColor {
             options["borderColor"] = borderColor.value
         }
-        if let font = font {
+        if let font {
             options["font"] = font.toDictionary()
         }
-        if let onHover = onHover {
+        if let onHover {
             options["onHover"] = onHover
         }
-        if let onClick = onClick {
+        if let onClick {
             options["onClick"] = onClick
         }
-        if let onResize = onResize {
+        if let onResize {
             options["onResize"] = onResize
         }
 
@@ -150,14 +150,19 @@ public struct ChartOptions: Sendable {
                 } else {
                     js += "'\(str)'"
                 }
+
             case let num as Double:
                 js += String(num)
+
             case let num as Int:
                 js += String(num)
+
             case let bool as Bool:
                 js += bool ? "true" : "false"
+
             case let dict as [String: Any]:
                 js += dictToJS(dict, indent: "    ")
+
             default:
                 js += "null"
             }
@@ -188,16 +193,22 @@ public struct ChartOptions: Sendable {
                 } else {
                     js += "'\(str)'"
                 }
+
             case let num as Double:
                 js += String(num)
+
             case let num as Int:
                 js += String(num)
+
             case let bool as Bool:
                 js += bool ? "true" : "false"
+
             case let dict as [String: Any]:
                 js += dictToJS(dict, indent: nextIndent)
+
             case let array as [Any]:
                 js += "[\(array.map { arrayValueToJS($0) }.joined(separator: ", "))]"
+
             default:
                 js += "null"
             }
@@ -218,12 +229,16 @@ public struct ChartOptions: Sendable {
         switch value {
         case let str as String:
             return "'\(str)'"
+
         case let num as Double:
             return String(num)
+
         case let num as Int:
             return String(num)
+
         case let bool as Bool:
             return bool ? "true" : "false"
+
         default:
             return "null"
         }
@@ -246,8 +261,10 @@ public enum ClipValue: Sendable {
         switch self {
         case .auto:
             return "auto"
+
         case .pixels(let value):
             return value
+
         case .disable:
             return false
         }
@@ -278,19 +295,19 @@ public struct FontOptions: Sendable {
 
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
-        if let family = family {
+        if let family {
             dict["family"] = family
         }
-        if let size = size {
+        if let size {
             dict["size"] = size
         }
-        if let style = style {
+        if let style {
             dict["style"] = style.rawValue
         }
-        if let weight = weight {
+        if let weight {
             dict["weight"] = weight.jsValue
         }
-        if let lineHeight = lineHeight {
+        if let lineHeight {
             dict["lineHeight"] = lineHeight
         }
         return dict
@@ -314,12 +331,16 @@ public enum FontWeight: Sendable {
         switch self {
         case .normal:
             return "normal"
+
         case .bold:
             return "bold"
+
         case .bolder:
             return "bolder"
+
         case .lighter:
             return "lighter"
+
         case .number(let weight):
             return weight
         }

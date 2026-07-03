@@ -90,40 +90,40 @@ public struct LineDataset: ChartDataset {
     public func toDictionary() -> [String: Any] {
         var dict = defaultDictionary()
 
-        if let tension = tension {
+        if let tension {
             dict["tension"] = tension
         }
-        if let fill = fill {
+        if let fill {
             dict["fill"] = fill.jsValue
         }
-        if let stepped = stepped {
+        if let stepped {
             dict["stepped"] = stepped
         }
-        if let pointRadius = pointRadius {
+        if let pointRadius {
             dict["pointRadius"] = pointRadius
         }
-        if let pointHoverRadius = pointHoverRadius {
+        if let pointHoverRadius {
             dict["pointHoverRadius"] = pointHoverRadius
         }
-        if let pointBackgroundColor = pointBackgroundColor {
+        if let pointBackgroundColor {
             dict["pointBackgroundColor"] = pointBackgroundColor.value
         }
-        if let pointBorderColor = pointBorderColor {
+        if let pointBorderColor {
             dict["pointBorderColor"] = pointBorderColor.value
         }
-        if let pointBorderWidth = pointBorderWidth {
+        if let pointBorderWidth {
             dict["pointBorderWidth"] = pointBorderWidth
         }
-        if let pointStyle = pointStyle {
+        if let pointStyle {
             dict["pointStyle"] = pointStyle.rawValue
         }
-        if let showLine = showLine {
+        if let showLine {
             dict["showLine"] = showLine
         }
-        if let spanGaps = spanGaps {
+        if let spanGaps {
             dict["spanGaps"] = spanGaps
         }
-        if let cubicInterpolationMode = cubicInterpolationMode {
+        if let cubicInterpolationMode {
             dict["cubicInterpolationMode"] = cubicInterpolationMode.rawValue
         }
 
@@ -137,16 +137,16 @@ public struct LineDataset: ChartDataset {
             "hidden": hidden,
         ]
 
-        if let backgroundColor = backgroundColor {
+        if let backgroundColor {
             dict["backgroundColor"] = backgroundColor.value
         }
-        if let borderColor = borderColor {
+        if let borderColor {
             dict["borderColor"] = borderColor.value
         }
-        if let borderWidth = borderWidth {
+        if let borderWidth {
             dict["borderWidth"] = borderWidth
         }
-        if let order = order {
+        if let order {
             dict["order"] = order
         }
 
@@ -170,20 +170,28 @@ public enum ChartFill: Sendable {
         switch self {
         case .none:
             return false
+
         case .origin:
             return "origin"
+
         case .start:
             return "start"
+
         case .end:
             return "end"
+
         case .stack:
             return "stack"
+
         case .shape:
             return "shape"
+
         case .relative(let index):
             return index > 0 ? "+\(index)" : "\(index)"
+
         case .absolute(let index):
             return index
+
         case .dataset(let index):
             return ["target": index]
         }

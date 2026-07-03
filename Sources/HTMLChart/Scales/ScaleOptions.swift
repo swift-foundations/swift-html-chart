@@ -11,20 +11,20 @@ public struct ScaleOptions: Sendable {
     /// Convenience initializer for common x/y scales
     public init(x: (any Scale)? = nil, y: (any Scale)? = nil) {
         var scales: [String: any Scale] = [:]
-        if let x = x {
+        if let x {
             scales["x"] = x
         }
-        if let y = y {
+        if let y {
             scales["y"] = y
         }
         self.scales = scales
     }
 
     /// Add a scale with a custom ID
-    public func adding(_ scale: any Scale, withId id: String) -> ScaleOptions {
+    public func adding(_ scale: any Scale, withId id: String) -> Self {
         var newScales = scales
         newScales[id] = scale
-        return ScaleOptions(scales: newScales)
+        return Self(scales: newScales)
     }
 
     func toDictionary() -> [String: Any] {
@@ -44,25 +44,25 @@ public struct ScaleBuilder {
 
     public init() {}
 
-    public func x(_ scale: any Scale) -> ScaleBuilder {
+    public func x(_ scale: any Scale) -> Self {
         var builder = self
         builder.scales["x"] = scale
         return builder
     }
 
-    public func y(_ scale: any Scale) -> ScaleBuilder {
+    public func y(_ scale: any Scale) -> Self {
         var builder = self
         builder.scales["y"] = scale
         return builder
     }
 
-    public func r(_ scale: any Scale) -> ScaleBuilder {
+    public func r(_ scale: any Scale) -> Self {
         var builder = self
         builder.scales["r"] = scale
         return builder
     }
 
-    public func custom(_ id: String, scale: any Scale) -> ScaleBuilder {
+    public func custom(_ id: String, scale: any Scale) -> Self {
         var builder = self
         builder.scales[id] = scale
         return builder

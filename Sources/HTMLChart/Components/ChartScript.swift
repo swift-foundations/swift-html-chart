@@ -40,22 +40,22 @@ public struct ChartScript: HTML {
                             setTimeout(init_\(chartId), 100);
                             return;
                         }
-                        
+
                         const ctx = document.getElementById('\(chartId)');
                         if (!ctx) {
                             console.error('Canvas element not found: \(chartId)');
                             return;
                         }
-                        
+
                         // Destroy existing chart if it exists
                         if (\(globalVar)) {
                             \(globalVar).destroy();
                         }
-                        
+
                         // Create new chart
                         \(globalVar) = new Chart(ctx.getContext('2d'), \(configJS));
                     }
-                    
+
                     // Initialize on DOM ready
                     if (document.readyState === 'loading') {
                         document.addEventListener('DOMContentLoaded', init_\(chartId));

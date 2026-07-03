@@ -69,16 +69,16 @@ extension ChartDataset {
             "hidden": hidden,
         ]
 
-        if let backgroundColor = backgroundColor {
+        if let backgroundColor {
             dict["backgroundColor"] = backgroundColor.value
         }
-        if let borderColor = borderColor {
+        if let borderColor {
             dict["borderColor"] = borderColor.value
         }
-        if let borderWidth = borderWidth {
+        if let borderWidth {
             dict["borderWidth"] = borderWidth
         }
-        if let order = order {
+        if let order {
             dict["order"] = order
         }
 

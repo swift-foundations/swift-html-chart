@@ -52,46 +52,46 @@ public struct LegendOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let position = position {
+        if let position {
             dict["position"] = position.rawValue
         }
-        if let align = align {
+        if let align {
             dict["align"] = align.rawValue
         }
-        if let maxHeight = maxHeight {
+        if let maxHeight {
             dict["maxHeight"] = maxHeight
         }
-        if let maxWidth = maxWidth {
+        if let maxWidth {
             dict["maxWidth"] = maxWidth
         }
-        if let fullSize = fullSize {
+        if let fullSize {
             dict["fullSize"] = fullSize
         }
-        if let reverse = reverse {
+        if let reverse {
             dict["reverse"] = reverse
         }
-        if let onClick = onClick {
+        if let onClick {
             dict["onClick"] = onClick
         }
-        if let onHover = onHover {
+        if let onHover {
             dict["onHover"] = onHover
         }
-        if let onLeave = onLeave {
+        if let onLeave {
             dict["onLeave"] = onLeave
         }
-        if let labels = labels {
+        if let labels {
             dict["labels"] = labels.toDictionary()
         }
-        if let title = title {
+        if let title {
             dict["title"] = title.toDictionary()
         }
-        if let rtl = rtl {
+        if let rtl {
             dict["rtl"] = rtl
         }
-        if let textDirection = textDirection {
+        if let textDirection {
             dict["textDirection"] = textDirection.rawValue
         }
 
@@ -173,46 +173,46 @@ public struct LegendLabelOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let boxWidth = boxWidth {
+        if let boxWidth {
             dict["boxWidth"] = boxWidth
         }
-        if let boxHeight = boxHeight {
+        if let boxHeight {
             dict["boxHeight"] = boxHeight
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let font = font {
+        if let font {
             dict["font"] = font.toDictionary()
         }
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding
         }
-        if let generateLabels = generateLabels {
+        if let generateLabels {
             dict["generateLabels"] = generateLabels
         }
-        if let filter = filter {
+        if let filter {
             dict["filter"] = filter
         }
-        if let sort = sort {
+        if let sort {
             dict["sort"] = sort
         }
-        if let pointStyle = pointStyle {
+        if let pointStyle {
             dict["pointStyle"] = pointStyle.rawValue
         }
-        if let textAlign = textAlign {
+        if let textAlign {
             dict["textAlign"] = textAlign.rawValue
         }
-        if let usePointStyle = usePointStyle {
+        if let usePointStyle {
             dict["usePointStyle"] = usePointStyle
         }
-        if let pointStyleWidth = pointStyleWidth {
+        if let pointStyleWidth {
             dict["pointStyleWidth"] = pointStyleWidth
         }
-        if let useBorderRadius = useBorderRadius {
+        if let useBorderRadius {
             dict["useBorderRadius"] = useBorderRadius
         }
-        if let borderRadius = borderRadius {
+        if let borderRadius {
             dict["borderRadius"] = borderRadius
         }
 
@@ -252,19 +252,19 @@ public struct LegendTitle: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let text = text {
+        if let text {
             dict["text"] = text
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let font = font {
+        if let font {
             dict["font"] = font.toDictionary()
         }
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding.jsValue
         }
 

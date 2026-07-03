@@ -7,7 +7,7 @@ import Testing
 struct GenerationTests {
 
     @Test("Generate simple line chart HTML")
-    func testLineChartGeneration() {
+    func testLineChartGeneration() throws {
         let chart = LineChart(
             id: "test-chart",
             data: ChartData(
@@ -20,7 +20,7 @@ struct GenerationTests {
             )
         )
 
-        let html = try! String(chart)
+        let html = try String(chart)
 
         // Check that canvas element is created
         #expect(html.contains("<canvas"))
@@ -63,7 +63,7 @@ struct GenerationTests {
     }
 
     @Test("ChartScript generates initialization code")
-    func testScriptGeneration() {
+    func testScriptGeneration() throws {
         let config = ChartConfiguration(
             type: .bar,
             data: ChartData(
@@ -81,7 +81,7 @@ struct GenerationTests {
             configuration: config
         )
 
-        let html = try! String(script)
+        let html = try String(script)
 
         // Check that initialization function is created
         #expect(html.contains("init_bar-chart"))

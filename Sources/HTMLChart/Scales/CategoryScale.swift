@@ -64,7 +64,7 @@ public struct CategoryScale: Scale {
     public func toDictionary() -> [String: Any] {
         var dict = baseDictionary()
 
-        if let labels = labels {
+        if let labels {
             dict["labels"] = labels
         }
 

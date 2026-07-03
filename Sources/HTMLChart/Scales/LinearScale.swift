@@ -67,10 +67,10 @@ public struct LinearScale: Scale {
     public func toDictionary() -> [String: Any] {
         var dict = baseDictionary()
 
-        if let beginAtZero = beginAtZero {
+        if let beginAtZero {
             dict["beginAtZero"] = beginAtZero
         }
-        if let grace = grace {
+        if let grace {
             dict["grace"] = grace.jsValue
         }
 
@@ -87,6 +87,7 @@ public enum Grace: Sendable {
         switch self {
         case .pixels(let value):
             return value
+
         case .percentage(let value):
             return "\(value)%"
         }

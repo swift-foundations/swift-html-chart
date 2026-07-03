@@ -32,35 +32,35 @@ public struct AnimationOptions: Sendable {
     }
 
     /// Create animation options with no animation
-    public static var none: AnimationOptions {
-        AnimationOptions(duration: 0)
+    public static var none: Self {
+        Self(duration: 0)
     }
 
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let duration = duration {
+        if let duration {
             dict["duration"] = duration
         }
-        if let easing = easing {
+        if let easing {
             dict["easing"] = easing.rawValue
         }
-        if let delay = delay {
+        if let delay {
             dict["delay"] = delay
         }
-        if let loop = loop {
+        if let loop {
             dict["loop"] = loop
         }
-        if let animateRotate = animateRotate {
+        if let animateRotate {
             dict["animateRotate"] = animateRotate
         }
-        if let animateScale = animateScale {
+        if let animateScale {
             dict["animateScale"] = animateScale
         }
-        if let onProgress = onProgress {
+        if let onProgress {
             dict["onProgress"] = onProgress
         }
-        if let onComplete = onComplete {
+        if let onComplete {
             dict["onComplete"] = onComplete
         }
 

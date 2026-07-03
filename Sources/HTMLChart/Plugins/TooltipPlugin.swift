@@ -127,43 +127,43 @@ public struct TooltipOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let enabled = enabled {
+        if let enabled {
             dict["enabled"] = enabled
         }
-        if let external = external {
+        if let external {
             dict["external"] = external
         }
-        if let mode = mode {
+        if let mode {
             dict["mode"] = mode.rawValue
         }
-        if let intersect = intersect {
+        if let intersect {
             dict["intersect"] = intersect
         }
-        if let position = position {
+        if let position {
             dict["position"] = position.rawValue
         }
-        if let callbacks = callbacks {
+        if let callbacks {
             dict["callbacks"] = callbacks.toDictionary()
         }
-        if let backgroundColor = backgroundColor {
+        if let backgroundColor {
             dict["backgroundColor"] = backgroundColor.value
         }
-        if let titleColor = titleColor {
+        if let titleColor {
             dict["titleColor"] = titleColor.value
         }
-        if let bodyColor = bodyColor {
+        if let bodyColor {
             dict["bodyColor"] = bodyColor.value
         }
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding.jsValue
         }
-        if let displayColors = displayColors {
+        if let displayColors {
             dict["displayColors"] = displayColors
         }
-        if let borderColor = borderColor {
+        if let borderColor {
             dict["borderColor"] = borderColor.value
         }
-        if let borderWidth = borderWidth {
+        if let borderWidth {
             dict["borderWidth"] = borderWidth
         }
         // Add other properties as needed
@@ -240,46 +240,46 @@ public struct TooltipCallbacks: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let beforeTitle = beforeTitle {
+        if let beforeTitle {
             dict["beforeTitle"] = beforeTitle
         }
-        if let title = title {
+        if let title {
             dict["title"] = title
         }
-        if let afterTitle = afterTitle {
+        if let afterTitle {
             dict["afterTitle"] = afterTitle
         }
-        if let beforeBody = beforeBody {
+        if let beforeBody {
             dict["beforeBody"] = beforeBody
         }
-        if let beforeLabel = beforeLabel {
+        if let beforeLabel {
             dict["beforeLabel"] = beforeLabel
         }
-        if let label = label {
+        if let label {
             dict["label"] = label
         }
-        if let labelColor = labelColor {
+        if let labelColor {
             dict["labelColor"] = labelColor
         }
-        if let labelTextColor = labelTextColor {
+        if let labelTextColor {
             dict["labelTextColor"] = labelTextColor
         }
-        if let labelPointStyle = labelPointStyle {
+        if let labelPointStyle {
             dict["labelPointStyle"] = labelPointStyle
         }
-        if let afterLabel = afterLabel {
+        if let afterLabel {
             dict["afterLabel"] = afterLabel
         }
-        if let afterBody = afterBody {
+        if let afterBody {
             dict["afterBody"] = afterBody
         }
-        if let beforeFooter = beforeFooter {
+        if let beforeFooter {
             dict["beforeFooter"] = beforeFooter
         }
-        if let footer = footer {
+        if let footer {
             dict["footer"] = footer
         }
-        if let afterFooter = afterFooter {
+        if let afterFooter {
             dict["afterFooter"] = afterFooter
         }
 

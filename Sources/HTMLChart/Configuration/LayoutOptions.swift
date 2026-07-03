@@ -16,10 +16,10 @@ public struct LayoutOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding.jsValue
         }
-        if let autoPadding = autoPadding {
+        if let autoPadding {
             dict["autoPadding"] = autoPadding
         }
 
@@ -37,6 +37,7 @@ public enum PaddingValue: Sendable {
         switch self {
         case .uniform(let value):
             return value
+
         case .sides(let top, let right, let bottom, let left):
             return [
                 "top": top,
@@ -44,6 +45,7 @@ public enum PaddingValue: Sendable {
                 "bottom": bottom,
                 "left": left,
             ]
+
         case .vertical(let vertical, let horizontal):
             return [
                 "top": vertical,

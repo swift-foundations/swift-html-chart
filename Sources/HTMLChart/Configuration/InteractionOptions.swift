@@ -22,16 +22,16 @@ public struct InteractionOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let mode = mode {
+        if let mode {
             dict["mode"] = mode.rawValue
         }
-        if let intersect = intersect {
+        if let intersect {
             dict["intersect"] = intersect
         }
-        if let axis = axis {
+        if let axis {
             dict["axis"] = axis.rawValue
         }
-        if let includeInvisible = includeInvisible {
+        if let includeInvisible {
             dict["includeInvisible"] = includeInvisible
         }
 

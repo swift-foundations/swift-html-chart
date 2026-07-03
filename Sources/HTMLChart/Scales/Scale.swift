@@ -30,52 +30,52 @@ extension Scale {
             "type": type.rawValue
         ]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let position = position {
+        if let position {
             dict["position"] = position.rawValue
         }
-        if let offset = offset {
+        if let offset {
             dict["offset"] = offset
         }
-        if let title = title {
+        if let title {
             dict["title"] = title.toDictionary()
         }
-        if let ticks = ticks {
+        if let ticks {
             dict["ticks"] = ticks.toDictionary()
         }
-        if let grid = grid {
+        if let grid {
             dict["grid"] = grid.toDictionary()
         }
-        if let border = border {
+        if let border {
             dict["border"] = border.toDictionary()
         }
-        if let min = min {
+        if let min {
             dict["min"] = min
         }
-        if let max = max {
+        if let max {
             dict["max"] = max
         }
-        if let suggestedMin = suggestedMin {
+        if let suggestedMin {
             dict["suggestedMin"] = suggestedMin
         }
-        if let suggestedMax = suggestedMax {
+        if let suggestedMax {
             dict["suggestedMax"] = suggestedMax
         }
-        if let reverse = reverse {
+        if let reverse {
             dict["reverse"] = reverse
         }
-        if let stacked = stacked {
+        if let stacked {
             dict["stacked"] = stacked
         }
-        if let weight = weight {
+        if let weight {
             dict["weight"] = weight
         }
-        if let id = id {
+        if let id {
             dict["id"] = id
         }
-        if let clip = clip {
+        if let clip {
             dict["clip"] = clip
         }
 
@@ -131,22 +131,22 @@ public struct ScaleTitle: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let text = text {
+        if let text {
             dict["text"] = text
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let font = font {
+        if let font {
             dict["font"] = font.toDictionary()
         }
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding.jsValue
         }
-        if let align = align {
+        if let align {
             dict["align"] = align.rawValue
         }
 
@@ -255,28 +255,28 @@ public struct TickOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let font = font {
+        if let font {
             dict["font"] = font.toDictionary()
         }
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding
         }
-        if let maxRotation = maxRotation {
+        if let maxRotation {
             dict["maxRotation"] = maxRotation
         }
-        if let minRotation = minRotation {
+        if let minRotation {
             dict["minRotation"] = minRotation
         }
-        if let autoSkip = autoSkip {
+        if let autoSkip {
             dict["autoSkip"] = autoSkip
         }
-        if let callback = callback {
+        if let callback {
             dict["callback"] = callback
         }
         // Add other properties as needed
@@ -353,31 +353,31 @@ public struct GridOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let circular = circular {
+        if let circular {
             dict["circular"] = circular
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let lineWidth = lineWidth {
+        if let lineWidth {
             dict["lineWidth"] = lineWidth
         }
-        if let drawOnChartArea = drawOnChartArea {
+        if let drawOnChartArea {
             dict["drawOnChartArea"] = drawOnChartArea
         }
-        if let drawTicks = drawTicks {
+        if let drawTicks {
             dict["drawTicks"] = drawTicks
         }
-        if let tickLength = tickLength {
+        if let tickLength {
             dict["tickLength"] = tickLength
         }
-        if let offset = offset {
+        if let offset {
             dict["offset"] = offset
         }
-        if let z = z {
+        if let z {
             dict["z"] = z
         }
 
@@ -413,22 +413,22 @@ public struct BorderOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let width = width {
+        if let width {
             dict["width"] = width
         }
-        if let dash = dash {
+        if let dash {
             dict["dash"] = dash
         }
-        if let dashOffset = dashOffset {
+        if let dashOffset {
             dict["dashOffset"] = dashOffset
         }
-        if let z = z {
+        if let z {
             dict["z"] = z
         }
 

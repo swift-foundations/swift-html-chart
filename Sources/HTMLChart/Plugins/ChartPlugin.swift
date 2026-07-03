@@ -47,22 +47,22 @@ public struct PluginOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let legend = legend {
+        if let legend {
             dict["legend"] = legend.toDictionary()
         }
-        if let tooltip = tooltip {
+        if let tooltip {
             dict["tooltip"] = tooltip.toDictionary()
         }
-        if let title = title {
+        if let title {
             dict["title"] = title.toDictionary()
         }
-        if let subtitle = subtitle {
+        if let subtitle {
             dict["subtitle"] = subtitle.toDictionary()
         }
-        if let filler = filler {
+        if let filler {
             dict["filler"] = filler.toDictionary()
         }
-        if let decimation = decimation {
+        if let decimation {
             dict["decimation"] = decimation.toDictionary()
         }
 
@@ -86,10 +86,10 @@ public struct FillerOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let propagate = propagate {
+        if let propagate {
             dict["propagate"] = propagate
         }
-        if let drawTime = drawTime {
+        if let drawTime {
             dict["drawTime"] = drawTime.rawValue
         }
 
@@ -129,16 +129,16 @@ public struct DecimationOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let enabled = enabled {
+        if let enabled {
             dict["enabled"] = enabled
         }
-        if let algorithm = algorithm {
+        if let algorithm {
             dict["algorithm"] = algorithm.rawValue
         }
-        if let samples = samples {
+        if let samples {
             dict["samples"] = samples
         }
-        if let threshold = threshold {
+        if let threshold {
             dict["threshold"] = threshold
         }
 
@@ -186,28 +186,28 @@ public struct SubtitleOptions: Sendable {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
-        if let display = display {
+        if let display {
             dict["display"] = display
         }
-        if let text = text {
+        if let text {
             dict["text"] = text
         }
-        if let color = color {
+        if let color {
             dict["color"] = color.value
         }
-        if let font = font {
+        if let font {
             dict["font"] = font.toDictionary()
         }
-        if let position = position {
+        if let position {
             dict["position"] = position.rawValue
         }
-        if let padding = padding {
+        if let padding {
             dict["padding"] = padding.jsValue
         }
-        if let fullSize = fullSize {
+        if let fullSize {
             dict["fullSize"] = fullSize
         }
-        if let align = align {
+        if let align {
             dict["align"] = align.rawValue
         }
 

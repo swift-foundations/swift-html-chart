@@ -25,13 +25,13 @@ public struct ChartConfiguration: Sendable {
         js += "  type: '\(type.chartJsType)',\n"
         js += "  data: \(dataToJavaScript()),\n"
 
-        if let options = options {
+        if let options {
             js += "  options: \(options.toJavaScript())"
         } else {
             js += "  options: {}"
         }
 
-        if let plugins = plugins, !plugins.isEmpty {
+        if let plugins, !plugins.isEmpty {
             js += ",\n  plugins: [\(plugins.map { $0.toJavaScript() }.joined(separator: ", "))]"
         }
 
@@ -71,16 +71,22 @@ public struct ChartConfiguration: Sendable {
                 } else {
                     js += "'\(str)'"
                 }
+
             case let num as Double:
                 js += String(num)
+
             case let num as Int:
                 js += String(num)
+
             case let bool as Bool:
                 js += bool ? "true" : "false"
+
             case let array as [Any]:
                 js += "[\(array.map { arrayElementToJS($0) }.joined(separator: ", "))]"
+
             case let dict as [String: Any]:
                 js += dictionaryToJavaScript(dict, indent: indent + "  ")
+
             default:
                 js += "null"
             }
@@ -102,12 +108,16 @@ public struct ChartConfiguration: Sendable {
         switch element {
         case let str as String:
             return "'\(str)'"
+
         case let num as Double:
             return String(num)
+
         case let num as Int:
             return String(num)
+
         case let bool as Bool:
             return bool ? "true" : "false"
+
         default:
             return "null"
         }
@@ -126,26 +136,26 @@ extension ChartConfiguration {
             self.type = type
         }
 
-        public func data(_ data: ChartData) -> Builder {
+        public func data(_ data: ChartData) -> Self {
             var builder = self
             builder.data = data
             return builder
         }
 
-        public func options(_ options: ChartOptions) -> Builder {
+        public func options(_ options: ChartOptions) -> Self {
             var builder = self
             builder.options = options
             return builder
         }
 
-        public func addPlugin(_ plugin: ChartPlugin) -> Builder {
+        public func addPlugin(_ plugin: ChartPlugin) -> Self {
             var builder = self
             builder.plugins.append(plugin)
             return builder
         }
 
         public func build() -> ChartConfiguration? {
-            guard let data = data else { return nil }
+            guard let data else { return nil }
             return ChartConfiguration(
                 type: type,
                 data: data,

@@ -88,52 +88,52 @@ public struct PieDataset: ChartDataset {
         ]
 
         // Use array of colors if provided, otherwise single color
-        if let backgroundColors = backgroundColors, !backgroundColors.isEmpty {
+        if let backgroundColors, !backgroundColors.isEmpty {
             dict["backgroundColor"] = backgroundColors.map { $0.value }
-        } else if let backgroundColor = backgroundColor {
+        } else if let backgroundColor {
             dict["backgroundColor"] = backgroundColor.value
         }
 
-        if let borderColors = borderColors, !borderColors.isEmpty {
+        if let borderColors, !borderColors.isEmpty {
             dict["borderColor"] = borderColors.map { $0.value }
-        } else if let borderColor = borderColor {
+        } else if let borderColor {
             dict["borderColor"] = borderColor.value
         }
 
-        if let borderWidth = borderWidth {
+        if let borderWidth {
             dict["borderWidth"] = borderWidth
         }
-        if let order = order {
+        if let order {
             dict["order"] = order
         }
-        if let rotation = rotation {
+        if let rotation {
             dict["rotation"] = rotation
         }
-        if let circumference = circumference {
+        if let circumference {
             dict["circumference"] = circumference
         }
-        if let borderAlign = borderAlign {
+        if let borderAlign {
             dict["borderAlign"] = borderAlign.rawValue
         }
-        if let borderRadius = borderRadius {
+        if let borderRadius {
             dict["borderRadius"] = borderRadius
         }
-        if let hoverOffset = hoverOffset {
+        if let hoverOffset {
             dict["hoverOffset"] = hoverOffset
         }
-        if let offset = offset {
+        if let offset {
             dict["offset"] = offset
         }
-        if let spacing = spacing {
+        if let spacing {
             dict["spacing"] = spacing
         }
-        if let weight = weight {
+        if let weight {
             dict["weight"] = weight
         }
-        if let hoverBackgroundColors = hoverBackgroundColors, !hoverBackgroundColors.isEmpty {
+        if let hoverBackgroundColors, !hoverBackgroundColors.isEmpty {
             dict["hoverBackgroundColor"] = hoverBackgroundColors.map { $0.value }
         }
-        if let hoverBorderColors = hoverBorderColors, !hoverBorderColors.isEmpty {
+        if let hoverBorderColors, !hoverBorderColors.isEmpty {
             dict["hoverBorderColor"] = hoverBorderColors.map { $0.value }
         }
 
@@ -203,7 +203,7 @@ public struct DoughnutDataset: ChartDataset {
 
     public func toDictionary() -> [String: Any] {
         var dict = pieDataset.toDictionary()
-        if let cutout = cutout {
+        if let cutout {
             dict["cutout"] = cutout.jsValue
         }
         return dict
@@ -225,6 +225,7 @@ public enum CutoutValue: Sendable {
         switch self {
         case .pixels(let value):
             return value
+
         case .percentage(let value):
             return "\(value)%"
         }

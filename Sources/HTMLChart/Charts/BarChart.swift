@@ -86,49 +86,49 @@ public struct BarDataset: ChartDataset {
             "hidden": hidden,
         ]
 
-        if let backgroundColor = backgroundColor {
+        if let backgroundColor {
             dict["backgroundColor"] = backgroundColor.value
         }
-        if let borderColor = borderColor {
+        if let borderColor {
             dict["borderColor"] = borderColor.value
         }
-        if let borderWidth = borderWidth {
+        if let borderWidth {
             dict["borderWidth"] = borderWidth
         }
-        if let order = order {
+        if let order {
             dict["order"] = order
         }
-        if let barPercentage = barPercentage {
+        if let barPercentage {
             dict["barPercentage"] = barPercentage
         }
-        if let categoryPercentage = categoryPercentage {
+        if let categoryPercentage {
             dict["categoryPercentage"] = categoryPercentage
         }
-        if let barThickness = barThickness {
+        if let barThickness {
             dict["barThickness"] = barThickness
         }
-        if let maxBarThickness = maxBarThickness {
+        if let maxBarThickness {
             dict["maxBarThickness"] = maxBarThickness
         }
-        if let minBarLength = minBarLength {
+        if let minBarLength {
             dict["minBarLength"] = minBarLength
         }
-        if let borderRadius = borderRadius {
+        if let borderRadius {
             dict["borderRadius"] = borderRadius.jsValue
         }
-        if let borderSkipped = borderSkipped {
+        if let borderSkipped {
             dict["borderSkipped"] = borderSkipped.rawValue
         }
-        if let inflateAmount = inflateAmount {
+        if let inflateAmount {
             dict["inflateAmount"] = inflateAmount
         }
-        if let grouped = grouped {
+        if let grouped {
             dict["grouped"] = grouped
         }
-        if let stack = stack {
+        if let stack {
             dict["stack"] = stack
         }
-        if let base = base {
+        if let base {
             dict["base"] = base
         }
 
@@ -146,8 +146,10 @@ public enum BorderRadius: Sendable {
         switch self {
         case .uniform(let radius):
             return radius
+
         case .topBottom(let top, let bottom):
             return ["top": top, "bottom": bottom]
+
         case .corners(let topLeft, let topRight, let bottomLeft, let bottomRight):
             return [
                 "topLeft": topLeft,

@@ -13,36 +13,36 @@ public struct ChartColor: Sendable, Codable, ExpressibleByStringLiteral {
     }
 
     /// Create an RGB color
-    public static func rgb(_ red: Int, _ green: Int, _ blue: Int) -> ChartColor {
-        ChartColor("rgb(\(red), \(green), \(blue))")
+    public static func rgb(_ red: Int, _ green: Int, _ blue: Int) -> Self {
+        Self("rgb(\(red), \(green), \(blue))")
     }
 
     /// Create an RGBA color with alpha
-    public static func rgba(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Double) -> ChartColor {
-        ChartColor("rgba(\(red), \(green), \(blue), \(alpha))")
+    public static func rgba(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Double) -> Self {
+        Self("rgba(\(red), \(green), \(blue), \(alpha))")
     }
 
     /// Create a hex color
-    public static func hex(_ hex: String) -> ChartColor {
-        ChartColor(hex.hasPrefix("#") ? hex : "#\(hex)")
+    public static func hex(_ hex: String) -> Self {
+        Self(hex.hasPrefix("#") ? hex : "#\(hex)")
     }
 
     /// Create an HSL color
-    public static func hsl(_ hue: Int, _ saturation: Int, _ lightness: Int) -> ChartColor {
-        ChartColor("hsl(\(hue), \(saturation)%, \(lightness)%)")
+    public static func hsl(_ hue: Int, _ saturation: Int, _ lightness: Int) -> Self {
+        Self("hsl(\(hue), \(saturation)%, \(lightness)%)")
     }
 
     /// Create an HSLA color with alpha
     public static func hsla(_ hue: Int, _ saturation: Int, _ lightness: Int, _ alpha: Double)
-        -> ChartColor
+        -> Self
     {
-        ChartColor("hsla(\(hue), \(saturation)%, \(lightness)%, \(alpha))")
+        Self("hsla(\(hue), \(saturation)%, \(lightness)%, \(alpha))")
     }
 
     /// Add transparency to a color
-    public func withAlpha(_ alpha: Double) -> ChartColor {
+    public func withAlpha(_ alpha: Double) -> Self {
         // This is a simplified version - in production you'd parse the color
-        ChartColor("\(value)")
+        Self("\(value)")
     }
 }
 

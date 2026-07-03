@@ -65,12 +65,15 @@ public enum ChartValue: Sendable, Codable {
         switch self {
         case .number(let value):
             try container.encode(value)
+
         case .string(let value):
             try container.encode(value)
+
         case .date(let value):
             // Format as ISO8601 string for Chart.js
             let formatter = ISO8601DateFormatter()
             try container.encode(formatter.string(from: value))
+
         case .null:
             try container.encodeNil()
         }
@@ -81,11 +84,14 @@ public enum ChartValue: Sendable, Codable {
         switch self {
         case .number(let value):
             return String(value)
+
         case .string(let value):
             return "'\(value)'"
+
         case .date(let value):
             let formatter = ISO8601DateFormatter()
             return "'\(formatter.string(from: value))'"
+
         case .null:
             return "null"
         }
