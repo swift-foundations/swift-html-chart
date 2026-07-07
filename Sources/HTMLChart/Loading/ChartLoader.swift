@@ -2,7 +2,7 @@ import Foundation
 import HTML
 
 /// Protocol for Chart.js loading strategies
-public protocol ChartLoader: HTML {
+public protocol ChartLoader: HTML.View {
     var loadingStrategy: ChartLoadingStrategy { get }
 }
 

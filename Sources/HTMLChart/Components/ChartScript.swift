@@ -2,7 +2,7 @@ import Foundation
 import HTML
 
 /// Component that generates the JavaScript to initialize a chart
-public struct ChartScript: HTML {
+public struct ChartScript: HTML.View {
     public let chartId: String
     public let configuration: ChartConfiguration
     public let waitForDOM: Bool
@@ -20,7 +20,7 @@ public struct ChartScript: HTML {
         self.storeGlobally = storeGlobally
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         script {
             generateScript()
         }

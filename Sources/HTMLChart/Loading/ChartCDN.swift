@@ -33,8 +33,8 @@ public struct ChartCDN: ChartLoader {
         self.includePlugins = includePlugins
     }
 
-    public var body: some HTML {
-        HTMLGroup {
+    public var body: some HTML.View {
+        HTML.Group {
             // Main Chart.js library
             script(
                 src: chartJsUrl,
@@ -46,7 +46,7 @@ public struct ChartCDN: ChartLoader {
             )
 
             // Additional plugins
-            HTMLForEach(includePlugins) { plugin in
+            for plugin in includePlugins {
                 script(
                     src: plugin.cdnUrl(version: version),
                     async: async,

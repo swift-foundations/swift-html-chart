@@ -24,7 +24,7 @@ public struct ChartNPM: ChartLoader {
         self.type = type
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         script(
             src: .init(path),
             async: async,
@@ -54,7 +54,7 @@ public struct ChartESM: ChartLoader {
         self.crossorigin = crossorigin
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         script(type: .module) {
             """
             import Chart from '\(url)';

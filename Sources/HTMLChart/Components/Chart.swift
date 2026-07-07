@@ -2,11 +2,11 @@ import Foundation
 import HTML
 
 /// Main chart component that renders a Chart.js chart
-public struct Chart: HTML {
+public struct Chart: HTML.View {
     public let id: String
     public let configuration: ChartConfiguration
-    public let width: CSSTypes.Width?
-    public let height: CSSTypes.Height?
+    public let width: W3C_CSS_BoxModel.Width?
+    public let height: W3C_CSS_BoxModel.Height?
     public let containerClass: Class?
     public let responsive: Bool
     public let storeGlobally: Bool
@@ -14,8 +14,8 @@ public struct Chart: HTML {
     public init(
         id: String? = nil,
         configuration: ChartConfiguration,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil,
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil,
         containerClass: Class? = nil,
         responsive: Bool = true,
         storeGlobally: Bool = false
@@ -29,15 +29,15 @@ public struct Chart: HTML {
         self.storeGlobally = storeGlobally
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         div {
             canvas {}
                 .id(id)
                 .if(let: width) { canvas, width in
-                    canvas.width(width)
+                    canvas.css.width(width)
                 }
                 .if(let: height) { canvas, height in
-                    canvas.height(height)
+                    canvas.css.height(height)
                 }
 
             ChartScript(
@@ -50,22 +50,22 @@ public struct Chart: HTML {
             div.class(containerClass)
         }
         .if(!responsive) { div in
-            div.inlineStyle("width", width?.description ?? "100%")
+            div.css.inlineStyle("width", width?.description ?? "100%")
                 .inlineStyle("height", height?.description ?? "400px")
         }
     }
 }
 
 /// Convenience chart components for common chart types
-public struct LineChart: HTML {
+public struct LineChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil,
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil,
         storeGlobally: Bool = false
     ) {
         let config = ChartConfiguration(
@@ -82,20 +82,20 @@ public struct LineChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }
 
-public struct BarChart: HTML {
+public struct BarChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil,
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil,
         horizontal: Bool = false
     ) {
         var finalOptions = options ?? ChartOptions()
@@ -122,20 +122,20 @@ public struct BarChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }
 
-public struct PieChart: HTML {
+public struct PieChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil
     ) {
         let config = ChartConfiguration(
             type: .pie,
@@ -150,20 +150,20 @@ public struct PieChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }
 
-public struct DoughnutChart: HTML {
+public struct DoughnutChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil
     ) {
         let config = ChartConfiguration(
             type: .doughnut,
@@ -178,20 +178,20 @@ public struct DoughnutChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }
 
-public struct RadarChart: HTML {
+public struct RadarChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil
     ) {
         let config = ChartConfiguration(
             type: .radar,
@@ -206,20 +206,20 @@ public struct RadarChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }
 
-public struct PolarAreaChart: HTML {
+public struct PolarAreaChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil
     ) {
         let config = ChartConfiguration(
             type: .polarArea,
@@ -234,20 +234,20 @@ public struct PolarAreaChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }
 
-public struct BubbleChart: HTML {
+public struct BubbleChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil
     ) {
         let config = ChartConfiguration(
             type: .bubble,
@@ -262,20 +262,20 @@ public struct BubbleChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }
 
-public struct ScatterChart: HTML {
+public struct ScatterChart: HTML.View {
     private let chart: Chart
 
     public init(
         id: String? = nil,
         data: ChartData,
         options: ChartOptions? = nil,
-        width: CSSTypes.Width? = nil,
-        height: CSSTypes.Height? = nil
+        width: W3C_CSS_BoxModel.Width? = nil,
+        height: W3C_CSS_BoxModel.Height? = nil
     ) {
         let config = ChartConfiguration(
             type: .scatter,
@@ -290,7 +290,7 @@ public struct ScatterChart: HTML {
         )
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         chart
     }
 }

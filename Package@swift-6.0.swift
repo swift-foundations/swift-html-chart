@@ -17,12 +17,12 @@ extension Target.Dependency {
 let package = Package(
     name: "swift-html-chart",
     platforms: [
-        .macOS(.v14),
-        .iOS(.v17),
-        .tvOS(.v17),
-        .watchOS(.v10),
-        .macCatalyst(.v17),
-        .visionOS(.v1)
+        .macOS("26.0"),
+        .iOS("26.0"),
+        .tvOS("26.0"),
+        .watchOS("26.0"),
+        .macCatalyst("26.0"),
+        .visionOS("26.0")
     ],
     products: [
         .library(
@@ -31,7 +31,7 @@ let package = Package(
         )
     ],
     dependencies: [
-        .package(url: "https://github.com/coenttb/swift-html", from: "0.0.1")
+        .package(url: "https://github.com/swift-foundations/swift-html.git", branch: "main")
     ],
     targets: [
         .target(

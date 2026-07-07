@@ -2,16 +2,16 @@ import Foundation
 import HTML
 
 /// A responsive chart container that maintains aspect ratio
-public struct ResponsiveChart: HTML {
+public struct ResponsiveChart: HTML.View {
     public let chart: Chart
     public let aspectRatio: Double
-    public let maxWidth: Length?
+    public let maxWidth: W3C_CSS_Values.Length?
     public let containerClass: Class?
 
     public init(
         chart: Chart,
         aspectRatio: Double = 2.0,
-        maxWidth: Length? = nil,
+        maxWidth: W3C_CSS_Values.Length? = nil,
         containerClass: Class? = nil
     ) {
         self.chart = chart
@@ -25,7 +25,7 @@ public struct ResponsiveChart: HTML {
         id: String? = nil,
         configuration: ChartConfiguration,
         aspectRatio: Double = 2.0,
-        maxWidth: Length? = nil,
+        maxWidth: W3C_CSS_Values.Length? = nil,
         containerClass: Class? = nil
     ) {
         self.chart = Chart(
@@ -38,22 +38,24 @@ public struct ResponsiveChart: HTML {
         self.containerClass = containerClass
     }
 
-    public var body: some HTML {
+    public var body: some HTML.View {
         div {
             div {
                 chart
             }
+            .css
             .position(.absolute)
             .top(.zero)
             .left(.zero)
             .width(.percent(100))
             .height(.percent(100))
         }
+        .css
         .position(.relative)
         .width(.percent(100))
         .inlineStyle("padding-bottom", "\(100.0 / aspectRatio)%")
         .if(let: maxWidth) { div, maxWidth in
-            div.maxWidth(.length(maxWidth))
+            div.css.maxWidth(.length(maxWidth))
         }
         .if(let: containerClass) { div, containerClass in
             div.class(containerClass)
