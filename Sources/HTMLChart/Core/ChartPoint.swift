@@ -41,25 +41,42 @@ public enum ChartValue: Sendable, Codable {
     case date(Date)
     case null
 
+    // Signature forced by external protocol Decodable (untyped `throws`).
+    // swiftlint:disable:next typed_throws_required
     public init(from decoder: Decoder) throws {
         let container = try decoder.singleValueContainer()
 
         if container.decodeNil() {
             self = .null
-        } else if let number = try? container.decode(Double.self) {
-            self = .number(number)
-        } else if let string = try? container.decode(String.self) {
-            self = .string(string)
-        } else if let date = try? container.decode(Date.self) {
-            self = .date(date)
-        } else {
-            throw DecodingError.dataCorruptedError(
-                in: container,
-                debugDescription: "Cannot decode ChartValue"
-            )
+            return
         }
+
+        // Cascading decode attempts: try each candidate type in turn and
+        // keep the first that succeeds. Empty catches are intentional —
+        // failure just means "try the next type", not an error to surface.
+        do {
+            self = .number(try container.decode(Double.self))
+            return
+        } catch {}
+
+        do {
+            self = .string(try container.decode(String.self))
+            return
+        } catch {}
+
+        do {
+            self = .date(try container.decode(Date.self))
+            return
+        } catch {}
+
+        throw DecodingError.dataCorruptedError(
+            in: container,
+            debugDescription: "Cannot decode ChartValue"
+        )
     }
 
+    // Signature forced by external protocol Encodable (untyped `throws`).
+    // swiftlint:disable:next typed_throws_required
     public func encode(to encoder: Encoder) throws {
         var container = encoder.singleValueContainer()
         switch self {

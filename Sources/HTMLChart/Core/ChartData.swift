@@ -3,24 +3,34 @@ import Foundation
 /// Represents the data structure for a chart
 public struct ChartData: Sendable, Codable {
     public let labels: [String]?
+    // Heterogeneous collection: a chart legitimately mixes concrete dataset kinds
+    // (bar/line/etc.) in one array; no non-existential shape expresses that.
+    // swiftlint:disable:next no_any_protocol_existential
     public let datasets: [any ChartDataset]
 
+    // Heterogeneous collection — see `datasets` above.
+    // swiftlint:disable:next no_any_protocol_existential
     public init(labels: [String]? = nil, datasets: [any ChartDataset]) {
         self.labels = labels
         self.datasets = datasets
     }
 
+    // Heterogeneous collection — see `datasets` above.
+    // swiftlint:disable no_any_protocol_existential
     /// Convenience initializer for single dataset
     public init(labels: [String]? = nil, dataset: any ChartDataset) {
         self.labels = labels
         self.datasets = [dataset]
     }
+    // swiftlint:enable no_any_protocol_existential
 
     private enum CodingKeys: String, CodingKey {
         case labels
         case datasets
     }
 
+    // Signature forced by external protocol Decodable (untyped `throws`).
+    // swiftlint:disable:next typed_throws_required
     public init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.labels = try container.decodeIfPresent([String].self, forKey: .labels)
@@ -30,6 +40,8 @@ public struct ChartData: Sendable, Codable {
         self.datasets = []
     }
 
+    // Signature forced by external protocol Encodable (untyped `throws`).
+    // swiftlint:disable:next typed_throws_required
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encodeIfPresent(labels, forKey: .labels)
