@@ -10,7 +10,9 @@ public enum ChartType: String, Sendable, CaseIterable, Codable {
     case polarArea
     case bubble
     case scatter
+}
 
+extension ChartType {
     /// The string value used by Chart.js
     public var chartJsType: String {
         switch self {

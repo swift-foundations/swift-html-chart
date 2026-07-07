@@ -115,7 +115,7 @@ struct ChartTests {
     }
 
     @Test("Color creation methods")
-    func testColors() {
+    func colors() {
         let rgb = ChartColor.rgb(255, 0, 0)
         #expect(rgb.value == "rgb(255, 0, 0)")
 
@@ -130,7 +130,7 @@ struct ChartTests {
     }
 
     @Test("Scale configuration")
-    func testScales() {
+    func scales() {
         let xScale = LinearScale(
             display: true,
             position: .bottom,

@@ -37,7 +37,9 @@ public struct ResponsiveChart: HTML.View {
         self.maxWidth = maxWidth
         self.containerClass = containerClass
     }
+}
 
+extension ResponsiveChart {
     public var body: some HTML.View {
         div {
             div {

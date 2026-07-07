@@ -63,7 +63,9 @@ public struct LinearScale: Scale {
         self.beginAtZero = beginAtZero
         self.grace = grace
     }
+}
 
+extension LinearScale {
     public func toDictionary() -> [String: Any] {
         var dict = baseDictionary()
 
@@ -82,7 +84,9 @@ public struct LinearScale: Scale {
 public enum Grace: Sendable {
     case pixels(Double)
     case percentage(Double)
+}
 
+extension Grace {
     var jsValue: Any {
         switch self {
         case .pixels(let value):

@@ -11,10 +11,6 @@ public struct ChartCDN: ChartLoader {
     public let async: Async
     public let includePlugins: [CDNPlugin]
 
-    public var loadingStrategy: ChartLoadingStrategy {
-        .cdn(version: version, minified: minified)
-    }
-
     public init(
         version: String = "4.4.0",
         minified: Bool = true,
@@ -31,6 +27,12 @@ public struct ChartCDN: ChartLoader {
         self.defer = `defer`
         self.async = async
         self.includePlugins = includePlugins
+    }
+}
+
+extension ChartCDN {
+    public var loadingStrategy: ChartLoadingStrategy {
+        .cdn(version: version, minified: minified)
     }
 
     public var body: some HTML.View {
@@ -70,7 +72,9 @@ public enum CDNPlugin: String, Sendable {
     case annotation = "chartjs-plugin-annotation"
     case deferred = "chartjs-plugin-deferred"
     case streaming = "chartjs-plugin-streaming"
+}
 
+extension CDNPlugin {
     func cdnUrl(version: String) -> Src {
         switch self {
         case .datalabels:

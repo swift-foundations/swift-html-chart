@@ -11,7 +11,9 @@ public struct ChartColor: Sendable, Codable, ExpressibleByStringLiteral {
     public init(stringLiteral value: String) {
         self.value = value
     }
+}
 
+extension ChartColor {
     /// Create an RGB color
     public static func rgb(_ red: Int, _ green: Int, _ blue: Int) -> Self {
         Self("rgb(\(red), \(green), \(blue))")
@@ -63,23 +65,6 @@ extension ChartColor {
 
 /// Represents a gradient for Chart.js
 public struct ChartGradient: Sendable {
-    public enum Direction: Sendable {
-        case vertical
-        case horizontal
-        case diagonal
-        case radial
-    }
-
-    public struct ColorStop: Sendable {
-        public let offset: Double
-        public let color: ChartColor
-
-        public init(offset: Double, color: ChartColor) {
-            self.offset = offset
-            self.color = color
-        }
-    }
-
     public let direction: Direction
     public let colors: [ColorStop]
 
@@ -95,5 +80,24 @@ public struct ChartGradient: Sendable {
             ColorStop(offset: 0, color: from),
             ColorStop(offset: 1, color: to),
         ]
+    }
+}
+
+extension ChartGradient {
+    public enum Direction: Sendable {
+        case vertical
+        case horizontal
+        case diagonal
+        case radial
+    }
+
+    public struct ColorStop: Sendable {
+        public let offset: Double
+        public let color: ChartColor
+
+        public init(offset: Double, color: ChartColor) {
+            self.offset = offset
+            self.color = color
+        }
     }
 }

@@ -18,7 +18,9 @@ public struct InteractionOptions: Sendable {
         self.axis = axis
         self.includeInvisible = includeInvisible
     }
+}
 
+extension InteractionOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 

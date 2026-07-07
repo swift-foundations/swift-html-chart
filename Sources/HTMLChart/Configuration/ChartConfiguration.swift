@@ -18,7 +18,9 @@ public struct ChartConfiguration: Sendable {
         self.options = options
         self.plugins = plugins
     }
+}
 
+extension ChartConfiguration {
     /// Generate the JavaScript configuration object for Chart.js
     public func toJavaScript() -> String {
         var js = "{\n"
@@ -135,33 +137,35 @@ extension ChartConfiguration {
         public init(type: ChartType) {
             self.type = type
         }
+    }
+}
 
-        public func data(_ data: ChartData) -> Self {
-            var builder = self
-            builder.data = data
-            return builder
-        }
+extension ChartConfiguration.Builder {
+    public func data(_ data: ChartData) -> Self {
+        var builder = self
+        builder.data = data
+        return builder
+    }
 
-        public func options(_ options: ChartOptions) -> Self {
-            var builder = self
-            builder.options = options
-            return builder
-        }
+    public func options(_ options: ChartOptions) -> Self {
+        var builder = self
+        builder.options = options
+        return builder
+    }
 
-        public func addPlugin(_ plugin: ChartPlugin) -> Self {
-            var builder = self
-            builder.plugins.append(plugin)
-            return builder
-        }
+    public func addPlugin(_ plugin: ChartPlugin) -> Self {
+        var builder = self
+        builder.plugins.append(plugin)
+        return builder
+    }
 
-        public func build() -> ChartConfiguration? {
-            guard let data else { return nil }
-            return ChartConfiguration(
-                type: type,
-                data: data,
-                options: options,
-                plugins: plugins.isEmpty ? nil : plugins
-            )
-        }
+    public func build() -> ChartConfiguration? {
+        guard let data else { return nil }
+        return ChartConfiguration(
+            type: type,
+            data: data,
+            options: options,
+            plugins: plugins.isEmpty ? nil : plugins
+        )
     }
 }

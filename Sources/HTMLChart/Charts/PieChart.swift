@@ -80,6 +80,9 @@ public struct PieDataset: ChartDataset {
         )
     }
 
+}
+
+extension PieDataset {
     public func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [
             "label": label,
@@ -146,15 +149,6 @@ public struct DoughnutDataset: ChartDataset {
     private let pieDataset: PieDataset
     public let cutout: CutoutValue?
 
-    // Forwarding protocol requirements
-    public var label: String { pieDataset.label }
-    public var data: [ChartValue] { pieDataset.data }
-    public var backgroundColor: ChartColor? { pieDataset.backgroundColor }
-    public var borderColor: ChartColor? { pieDataset.borderColor }
-    public var borderWidth: Double? { pieDataset.borderWidth }
-    public var hidden: Bool { pieDataset.hidden }
-    public var order: Int? { pieDataset.order }
-
     public init(
         label: String = "Doughnut Data",
         data: [ChartValue],
@@ -200,6 +194,17 @@ public struct DoughnutDataset: ChartDataset {
         )
         self.cutout = cutout
     }
+}
+
+extension DoughnutDataset {
+    // Forwarding protocol requirements
+    public var label: String { pieDataset.label }
+    public var data: [ChartValue] { pieDataset.data }
+    public var backgroundColor: ChartColor? { pieDataset.backgroundColor }
+    public var borderColor: ChartColor? { pieDataset.borderColor }
+    public var borderWidth: Double? { pieDataset.borderWidth }
+    public var hidden: Bool { pieDataset.hidden }
+    public var order: Int? { pieDataset.order }
 
     public func toDictionary() -> [String: Any] {
         var dict = pieDataset.toDictionary()
@@ -220,7 +225,9 @@ public enum BorderAlign: String, Sendable {
 public enum CutoutValue: Sendable {
     case pixels(Double)
     case percentage(Double)
+}
 
+extension CutoutValue {
     var jsValue: Any {
         switch self {
         case .pixels(let value):

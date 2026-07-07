@@ -19,7 +19,9 @@ public struct ChartScript: HTML.View {
         self.waitForDOM = waitForDOM
         self.storeGlobally = storeGlobally
     }
+}
 
+extension ChartScript {
     public var body: some HTML.View {
         script {
             generateScript()

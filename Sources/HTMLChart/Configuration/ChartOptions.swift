@@ -72,7 +72,9 @@ public struct ChartOptions: Sendable {
         self.onClick = onClick
         self.onResize = onResize
     }
+}
 
+extension ChartOptions {
     public func toJavaScript() -> String {
         var options: [String: Any] = [:]
 
@@ -256,7 +258,9 @@ public enum ClipValue: Sendable {
     case auto
     case pixels(Double)
     case disable
+}
 
+extension ClipValue {
     var jsValue: Any {
         switch self {
         case .auto:
@@ -292,7 +296,9 @@ public struct FontOptions: Sendable {
         self.weight = weight
         self.lineHeight = lineHeight
     }
+}
 
+extension FontOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
         if let family {
@@ -326,7 +332,9 @@ public enum FontWeight: Sendable {
     case bolder
     case lighter
     case number(Int)
+}
 
+extension FontWeight {
     var jsValue: Any {
         switch self {
         case .normal:
@@ -350,7 +358,9 @@ public enum FontWeight: Sendable {
 /// Element-specific options
 public struct ElementOptions: Sendable {
     // Simplified for now - would contain options for point, line, bar, arc elements
+}
 
+extension ElementOptions {
     func toDictionary() -> [String: Any] {
         return [:]
     }
@@ -359,7 +369,9 @@ public struct ElementOptions: Sendable {
 /// Dataset-specific options
 public struct DatasetOptions: Sendable {
     // Simplified for now - would contain dataset-specific defaults
+}
 
+extension DatasetOptions {
     func toDictionary() -> [String: Any] {
         return [:]
     }

@@ -1,8 +1,9 @@
 import Foundation
 
 // Simple example showing how to use the chart components
-public struct ChartExamples {
+public struct ChartExamples {}
 
+extension ChartExamples {
     // Example: Create a line chart configuration
     public static func createLineChartConfig() -> ChartConfiguration {
         let dataset = LineDataset(

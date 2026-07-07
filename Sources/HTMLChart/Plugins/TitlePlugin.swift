@@ -35,7 +35,9 @@ public struct TitleOptions: Sendable {
     public init(_ text: String) {
         self.init(display: true, text: .single(text))
     }
+}
 
+extension TitleOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 

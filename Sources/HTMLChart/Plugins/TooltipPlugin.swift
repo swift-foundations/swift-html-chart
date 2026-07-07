@@ -123,7 +123,9 @@ public struct TooltipOptions: Sendable {
         self.xAlign = xAlign
         self.yAlign = yAlign
     }
+}
 
+extension TooltipOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -236,7 +238,9 @@ public struct TooltipCallbacks: Sendable {
         self.footer = footer
         self.afterFooter = afterFooter
     }
+}
 
+extension TooltipCallbacks {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 

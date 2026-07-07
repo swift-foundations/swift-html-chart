@@ -48,7 +48,9 @@ public struct LegendOptions: Sendable {
         self.rtl = rtl
         self.textDirection = textDirection
     }
+}
 
+extension LegendOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -169,7 +171,9 @@ public struct LegendLabelOptions: Sendable {
         self.useBorderRadius = useBorderRadius
         self.borderRadius = borderRadius
     }
+}
 
+extension LegendLabelOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -248,7 +252,9 @@ public struct LegendTitle: Sendable {
         self.font = font
         self.padding = padding
     }
+}
 
+extension LegendTitle {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 

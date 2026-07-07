@@ -87,6 +87,9 @@ public struct LineDataset: ChartDataset {
         )
     }
 
+}
+
+extension LineDataset {
     public func toDictionary() -> [String: Any] {
         var dict = defaultDictionary()
 
@@ -165,7 +168,9 @@ public enum ChartFill: Sendable {
     case relative(Int)
     case absolute(Int)
     case dataset(Int)
+}
 
+extension ChartFill {
     var jsValue: Any {
         switch self {
         case .none:

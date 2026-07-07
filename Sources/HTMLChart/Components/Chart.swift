@@ -28,7 +28,9 @@ public struct Chart: HTML.View {
         self.responsive = responsive
         self.storeGlobally = storeGlobally
     }
+}
 
+extension Chart {
     public var body: some HTML.View {
         div {
             canvas {}
@@ -81,7 +83,9 @@ public struct LineChart: HTML.View {
             storeGlobally: storeGlobally
         )
     }
+}
 
+extension LineChart {
     public var body: some HTML.View {
         chart
     }
@@ -121,7 +125,9 @@ public struct BarChart: HTML.View {
             height: height
         )
     }
+}
 
+extension BarChart {
     public var body: some HTML.View {
         chart
     }
@@ -149,7 +155,9 @@ public struct PieChart: HTML.View {
             height: height
         )
     }
+}
 
+extension PieChart {
     public var body: some HTML.View {
         chart
     }
@@ -177,7 +185,9 @@ public struct DoughnutChart: HTML.View {
             height: height
         )
     }
+}
 
+extension DoughnutChart {
     public var body: some HTML.View {
         chart
     }
@@ -205,7 +215,9 @@ public struct RadarChart: HTML.View {
             height: height
         )
     }
+}
 
+extension RadarChart {
     public var body: some HTML.View {
         chart
     }
@@ -233,7 +245,9 @@ public struct PolarAreaChart: HTML.View {
             height: height
         )
     }
+}
 
+extension PolarAreaChart {
     public var body: some HTML.View {
         chart
     }
@@ -261,7 +275,9 @@ public struct BubbleChart: HTML.View {
             height: height
         )
     }
+}
 
+extension BubbleChart {
     public var body: some HTML.View {
         chart
     }
@@ -289,7 +305,9 @@ public struct ScatterChart: HTML.View {
             height: height
         )
     }
+}
 
+extension ScatterChart {
     public var body: some HTML.View {
         chart
     }

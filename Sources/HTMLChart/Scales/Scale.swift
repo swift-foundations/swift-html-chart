@@ -127,7 +127,9 @@ public struct ScaleTitle: Sendable {
         self.padding = padding
         self.align = align
     }
+}
 
+extension ScaleTitle {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -251,7 +253,9 @@ public struct TickOptions: Sendable {
         self.includeBounds = includeBounds
         self.source = source
     }
+}
 
+extension TickOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -349,7 +353,9 @@ public struct GridOptions: Sendable {
         self.offset = offset
         self.z = z
     }
+}
 
+extension GridOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -409,7 +415,9 @@ public struct BorderOptions: Sendable {
         self.dashOffset = dashOffset
         self.z = z
     }
+}
 
+extension BorderOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 

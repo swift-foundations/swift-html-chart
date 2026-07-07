@@ -74,7 +74,9 @@ public enum ChartValue: Sendable, Codable {
             debugDescription: "Cannot decode ChartValue"
         )
     }
+}
 
+extension ChartValue {
     // Signature forced by external protocol Encodable (untyped `throws`).
     // swiftlint:disable:next typed_throws_required
     public func encode(to encoder: Encoder) throws {

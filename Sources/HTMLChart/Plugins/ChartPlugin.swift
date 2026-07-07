@@ -43,7 +43,9 @@ public struct PluginOptions: Sendable {
         self.filler = filler
         self.decimation = decimation
     }
+}
 
+extension PluginOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -82,7 +84,9 @@ public struct FillerOptions: Sendable {
         self.propagate = propagate
         self.drawTime = drawTime
     }
+}
 
+extension FillerOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -125,7 +129,9 @@ public struct DecimationOptions: Sendable {
         self.samples = samples
         self.threshold = threshold
     }
+}
 
+extension DecimationOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -182,7 +188,9 @@ public struct SubtitleOptions: Sendable {
         self.fullSize = fullSize
         self.align = align
     }
+}
 
+extension SubtitleOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 

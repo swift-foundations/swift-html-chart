@@ -24,11 +24,6 @@ public struct ChartData: Sendable, Codable {
     }
     // swiftlint:enable no_any_protocol_existential
 
-    private enum CodingKeys: String, CodingKey {
-        case labels
-        case datasets
-    }
-
     // Signature forced by external protocol Decodable (untyped `throws`).
     // swiftlint:disable:next typed_throws_required
     public init(from decoder: Decoder) throws {
@@ -38,6 +33,13 @@ public struct ChartData: Sendable, Codable {
         // For decoding, we'd need to know the specific dataset types
         // This is a simplified version
         self.datasets = []
+    }
+}
+
+extension ChartData {
+    private enum CodingKeys: String, CodingKey {
+        case labels
+        case datasets
     }
 
     // Signature forced by external protocol Encodable (untyped `throws`).

@@ -12,7 +12,9 @@ public struct LayoutOptions: Sendable {
         self.padding = padding
         self.autoPadding = autoPadding
     }
+}
 
+extension LayoutOptions {
     func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [:]
 
@@ -32,7 +34,9 @@ public enum PaddingValue: Sendable {
     case uniform(Double)
     case sides(top: Double, right: Double, bottom: Double, left: Double)
     case vertical(Double, horizontal: Double)
+}
 
+extension PaddingValue {
     var jsValue: Any {
         switch self {
         case .uniform(let value):

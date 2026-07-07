@@ -60,7 +60,9 @@ public struct CategoryScale: Scale {
         self.clip = clip
         self.labels = labels
     }
+}
 
+extension CategoryScale {
     public func toDictionary() -> [String: Any] {
         var dict = baseDictionary()
 

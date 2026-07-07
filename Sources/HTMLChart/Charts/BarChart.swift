@@ -78,7 +78,9 @@ public struct BarDataset: ChartDataset {
             stack: stack
         )
     }
+}
 
+extension BarDataset {
     public func toDictionary() -> [String: Any] {
         var dict: [String: Any] = [
             "label": label,
@@ -141,7 +143,9 @@ public enum BorderRadius: Sendable {
     case uniform(Double)
     case topBottom(top: Double, bottom: Double)
     case corners(topLeft: Double, topRight: Double, bottomLeft: Double, bottomRight: Double)
+}
 
+extension BorderRadius {
     var jsValue: Any {
         switch self {
         case .uniform(let radius):

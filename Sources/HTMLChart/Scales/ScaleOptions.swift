@@ -28,7 +28,9 @@ public struct ScaleOptions: Sendable {
         self.scales = scales
     }
     // swiftlint:enable no_any_protocol_existential
+}
 
+extension ScaleOptions {
     // Heterogeneous collection — see `scales` above.
     // swiftlint:disable no_any_protocol_existential
     /// Add a scale with a custom ID
@@ -59,7 +61,12 @@ public struct ScaleBuilder {
     private var scales: [String: any Scale] = [:]
 
     public init() {}
+    // swiftlint:enable no_any_protocol_existential
+}
 
+extension ScaleBuilder {
+    // Heterogeneous collection — see `scales` above.
+    // swiftlint:disable no_any_protocol_existential
     public func x(_ scale: any Scale) -> Self {
         var builder = self
         builder.scales["x"] = scale

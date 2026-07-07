@@ -30,7 +30,9 @@ public struct AnimationOptions: Sendable {
         self.onProgress = onProgress
         self.onComplete = onComplete
     }
+}
 
+extension AnimationOptions {
     /// Create animation options with no animation
     public static var none: Self {
         Self(duration: 0)
