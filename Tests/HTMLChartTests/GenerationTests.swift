@@ -6,8 +6,8 @@ import Testing
 @Suite("HTML Generation Tests")
 struct GenerationTests {
 
-    @Test("Generate simple line chart HTML")
-    func testLineChartGeneration() throws {
+    @Test
+    func `Generate simple line chart HTML`() throws {
         let chart = LineChart(
             id: "test-chart",
             data: ChartData(
@@ -35,8 +35,8 @@ struct GenerationTests {
         print(html)
     }
 
-    @Test("ChartConfiguration generates valid JavaScript")
-    func testConfigurationJavaScript() {
+    @Test
+    func `ChartConfiguration generates valid JavaScript`() {
         let config = ChartConfiguration(
             type: .line,
             data: ChartData(
@@ -62,8 +62,8 @@ struct GenerationTests {
         print(js)
     }
 
-    @Test("ChartScript generates initialization code")
-    func testScriptGeneration() throws {
+    @Test
+    func `ChartScript generates initialization code`() throws {
         let config = ChartConfiguration(
             type: .bar,
             data: ChartData(
@@ -92,8 +92,8 @@ struct GenerationTests {
         print(html)
     }
 
-    @Test("Dataset dictionary conversion")
-    func testDatasetToDictionary() {
+    @Test
+    func `Dataset dictionary conversion`() {
         let dataset = LineDataset(
             label: "Test",
             data: [1, 2, 3],

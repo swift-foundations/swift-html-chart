@@ -6,8 +6,8 @@ import Testing
 @Suite("Chart Tests")
 struct ChartTests {
 
-    @Test("Create line chart with basic data")
-    func testLineChart() {
+    @Test
+    func `Create line chart with basic data`() {
         let data = ChartData(
             labels: ["January", "February", "March", "April"],
             dataset: LineDataset(
@@ -26,8 +26,8 @@ struct ChartTests {
         #expect(chart != nil)
     }
 
-    @Test("Create bar chart with multiple datasets")
-    func testBarChart() {
+    @Test
+    func `Create bar chart with multiple datasets`() {
         let data = ChartData(
             labels: ["Q1", "Q2", "Q3", "Q4"],
             datasets: [
@@ -53,8 +53,8 @@ struct ChartTests {
         #expect(chart != nil)
     }
 
-    @Test("Create pie chart with colors")
-    func testPieChart() {
+    @Test
+    func `Create pie chart with colors`() {
         let data = ChartData(
             labels: ["Red", "Blue", "Yellow", "Green"],
             dataset: PieDataset(
@@ -76,8 +76,8 @@ struct ChartTests {
         #expect(chart != nil)
     }
 
-    @Test("Chart configuration with options")
-    func testChartConfiguration() {
+    @Test
+    func `Chart configuration with options`() {
         let config = ChartConfiguration(
             type: .line,
             data: ChartData(
@@ -114,8 +114,8 @@ struct ChartTests {
         #expect(js.contains("responsive: true"))
     }
 
-    @Test("Color creation methods")
-    func colors() {
+    @Test
+    func `Color creation methods`() {
         let rgb = ChartColor.rgb(255, 0, 0)
         #expect(rgb.value == "rgb(255, 0, 0)")
 
@@ -129,8 +129,8 @@ struct ChartTests {
         #expect(hexWithHash.value == "#00FF00")
     }
 
-    @Test("Scale configuration")
-    func scales() {
+    @Test
+    func `Scale configuration`() {
         let xScale = LinearScale(
             display: true,
             position: .bottom,
@@ -156,8 +156,8 @@ struct ChartTests {
         #expect(dict["y"] != nil)
     }
 
-    @Test("CDN loader configuration")
-    func testCDNLoader() {
+    @Test
+    func `CDN loader configuration`() {
         let loader = ChartCDN(
             version: "4.4.0",
             minified: true,
@@ -168,8 +168,8 @@ struct ChartTests {
         #expect(loader.includePlugins.count == 2)
     }
 
-    @Test("Chart data with various value types")
-    func testChartValues() {
+    @Test
+    func `Chart data with various value types`() {
         let numberValue: ChartValue = .number(42.5)
         let stringValue: ChartValue = "Category"
         let dateValue: ChartValue = .date(Date())

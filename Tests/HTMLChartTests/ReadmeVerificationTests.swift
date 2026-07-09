@@ -6,8 +6,8 @@ import Testing
 @Suite("README Verification")
 struct ReadmeVerificationTests {
 
-    @Test("Basic Line Chart from README lines 44-65")
-    func testBasicLineChart() {
+    @Test
+    func `Basic Line Chart from README lines 44-65`() {
         // Create chart data
         let dataset = LineDataset(
             label: "Monthly Sales",
@@ -29,8 +29,8 @@ struct ReadmeVerificationTests {
         #expect(chart != nil)
     }
 
-    @Test("Bar Chart with Options from README lines 68-86")
-    func testBarChartWithOptions() {
+    @Test
+    func `Bar Chart with Options from README lines 68-86`() {
         let data = ChartData(
             labels: ["Q1", "Q2", "Q3", "Q4"],
             dataset: BarDataset(
@@ -49,8 +49,8 @@ struct ReadmeVerificationTests {
         #expect(chart != nil)
     }
 
-    @Test("Pie Chart from README lines 89-109")
-    func testPieChart() {
+    @Test
+    func `Pie Chart from README lines 89-109`() {
         let data = ChartData(
             labels: ["Desktop", "Mobile", "Tablet"],
             dataset: PieDataset(
@@ -71,8 +71,8 @@ struct ReadmeVerificationTests {
         #expect(chart != nil)
     }
 
-    @Test("Chart Configuration with Options from README lines 114-141")
-    func testChartConfigurationWithOptions() {
+    @Test
+    func `Chart Configuration with Options from README lines 114-141`() {
         // Create some dummy chart data
         let chartData = ChartData(
             labels: ["A", "B", "C"],
@@ -112,8 +112,8 @@ struct ReadmeVerificationTests {
         #expect(config != nil)
     }
 
-    @Test("Scale Configuration from README lines 144-165")
-    func testScaleConfiguration() {
+    @Test
+    func `Scale Configuration from README lines 144-165`() {
         let xScale = LinearScale(
             display: true,
             position: .bottom,
@@ -139,8 +139,8 @@ struct ReadmeVerificationTests {
         #expect(dict["y"] != nil)
     }
 
-    @Test("CDN Loading from README lines 168-175")
-    func testCDNLoading() {
+    @Test
+    func `CDN Loading from README lines 168-175`() {
         let loader = ChartCDN(
             version: "4.4.0",
             minified: true,
@@ -151,8 +151,8 @@ struct ReadmeVerificationTests {
         #expect(loader.includePlugins.count == 2)
     }
 
-    @Test("Color creation methods")
-    func testColorCreation() {
+    @Test
+    func `Color creation methods`() {
         let rgb = ChartColor.rgb(75, 192, 192)
         #expect(rgb.value == "rgb(75, 192, 192)")
 
@@ -163,8 +163,8 @@ struct ReadmeVerificationTests {
         #expect(rgbAlt.value == "rgb(255, 99, 132)")
     }
 
-    @Test("Dataset types compilation")
-    func testDatasetTypes() {
+    @Test
+    func `Dataset types compilation`() {
         // Test that all dataset types can be created
         let lineDataset = LineDataset(
             label: "Line",
@@ -187,8 +187,8 @@ struct ReadmeVerificationTests {
         #expect(pieDataset != nil)
     }
 
-    @Test("Chart types instantiation")
-    func testChartTypesInstantiation() {
+    @Test
+    func `Chart types instantiation`() {
         let data = ChartData(
             labels: ["A", "B", "C"],
             dataset: LineDataset(
