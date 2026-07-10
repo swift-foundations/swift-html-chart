@@ -1,4 +1,4 @@
-// swift-tools-version: 5.10
+// swift-tools-version: 6.3.1
 
 import PackageDescription
 
@@ -17,12 +17,12 @@ extension Target.Dependency {
 let package = Package(
     name: "swift-html-chart",
     platforms: [
-        .macOS(.v14),
-        .iOS(.v17),
-        .tvOS(.v17),
-        .watchOS(.v10),
-        .macCatalyst(.v17),
-        .visionOS(.v1)
+        .macOS(.v26),
+        .iOS(.v26),
+        .tvOS(.v26),
+        .watchOS(.v26),
+        .macCatalyst(.v26),
+        .visionOS(.v26)
     ],
     products: [
         .library(
@@ -47,7 +47,7 @@ let package = Package(
             ]
         )
     ],
-    swiftLanguageModes: [.v5]
+    swiftLanguageModes: [.v6]
 )
 
 extension String {
